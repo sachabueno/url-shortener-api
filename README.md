@@ -87,8 +87,7 @@ Remove a URL cadastrada.
 Clone o repositório:
 
 ```bash
-git clone URL_DO_REPOSITORIO
-```
+git clone https://github.com/sachabueno/url-shortener-api.git```
 
 Entre na pasta:
 

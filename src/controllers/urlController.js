@@ -89,22 +89,26 @@ class UrlController {
             });
         }
     }
-    static async excluirUrl(req, res) {
-        try {
-            const { codigo } = req.params;
+static async excluirUrl(req, res) {
+    try {
+        const { codigo } = req.params;
 
-            const url = await Url.findOneAndDelete({ codigo });
+        const url = await Url.findOneAndDelete({ codigo });
 
-            if (!url) {
-                return res.status(404).json({
-                    mensagem: "URL não encontrada."
-                });
-            }
-        } catch (error) {
-            return res.status(500).json({
-                mensagem: "Erro ao excluir URL."
+        if (!url) {
+            return res.status(404).json({
+                mensagem: "URL não encontrada."
             });
         }
+
+        return res.status(200).json({
+            mensagem: "URL excluída com sucesso."
+        });
+    } catch (error) {
+        return res.status(500).json({
+            mensagem: "Erro ao excluir URL."
+        });
     }
+}
 }
 export default UrlController;
